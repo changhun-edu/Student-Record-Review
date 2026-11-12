@@ -20,7 +20,7 @@ button,select,input{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:3px solid #6D9BF1;outline-offset:2px;border-radius:4px}
 .wrap{max-width:720px;margin:0 auto;padding:0 20px}
-.wide{max-width:1320px;margin:0 auto;padding:0 20px}
+.wide{max-width:1280px;margin:0 auto;padding:0 24px}
 
 /* 머리띠 */
 .top{background:var(--paper);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:30}
@@ -448,6 +448,35 @@ footer.site{border-top:1px solid var(--rule);margin-top:24px;padding:18px 0 26px
 @media (max-width:900px){.foot{grid-template-columns:1fr}.f-links{grid-column:1;grid-row:auto;justify-content:flex-start;margin-left:-8px}}
 @media (max-width:600px){.src th{width:auto;display:block;border-bottom:0;padding-bottom:0}.src td{display:block}}
 @media print{body.print-rules footer.site{display:none!important}}
+
+/* ── 시작선 통일: 첫 화면 두 칸, 사용 안내 세로 목차 ── */
+.home-grid{display:grid;grid-template-columns:minmax(0,720px) minmax(0,1fr);gap:0 44px;align-items:start}
+.home-side{position:sticky;top:84px;padding-top:44px;display:grid;gap:14px}
+.home-side .safe{margin:0;padding:20px 22px}
+.home-side .safe-grid{grid-template-columns:1fr;gap:12px}
+.home-side .safe h2{font-size:17px}
+.home-side .next-links{margin:0;gap:8px}
+.home .alt{margin-bottom:44px}
+.guide-grid{display:grid;grid-template-columns:200px minmax(0,780px);gap:0 36px;align-items:start}
+.guide-grid .toc{position:sticky;top:84px;display:flex;flex-direction:column;gap:2px;margin:0;border-left:2px solid var(--rule)}
+.guide-grid .toc button{border:0;border-radius:0;background:none;text-align:left;padding:7px 14px;margin-left:-2px;border-left:2px solid transparent;color:var(--ink2);font-size:14.5px;min-height:38px}
+.guide-grid .toc button:hover{color:var(--ink)}
+.guide-grid .toc button[aria-current="true"]{border-left-color:var(--red);color:var(--ink);font-weight:700}
+@media (max-width:1060px){
+  .home-grid{grid-template-columns:minmax(0,1fr)}
+  .home-side{position:static;padding-top:0;margin-bottom:40px}
+  .home-side .safe-grid{grid-template-columns:1fr 1fr}
+  .home .alt{margin-bottom:24px}
+}
+@media (max-width:900px){
+  .wide{padding:0 20px}
+  .guide-grid{grid-template-columns:minmax(0,1fr)}
+  .guide-grid .toc{position:sticky;top:101px;z-index:5;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;border-left:0;background:var(--desk);padding:8px 0;margin-bottom:8px;gap:6px}
+  .guide-grid .toc button{border:1px solid var(--rule);border-radius:99px;background:var(--paper);margin:0;padding:5px 13px;white-space:nowrap;min-height:36px}
+  .guide-grid .toc button[aria-current="true"]{border-color:var(--ink);border-left-color:var(--ink)}
+  .gsec{scroll-margin-top:170px}
+}
+@media (max-width:600px){.home-side .safe-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -471,7 +500,8 @@ footer.site{border-top:1px solid var(--rule);margin-top:24px;padding:18px 0 26px
 </header>
 
 <main id="home" class="home">
-  <div class="wrap">
+  <div class="wide home-grid">
+   <div class="home-main">
     <div id="resume" class="resume" hidden><span id="resumeText"></span><button class="btn sm" data-act="resume">결과로 돌아가기</button></div>
     <h1>학생부 PDF를 올리면,<br>학년마다 그해 기재요령으로 점검합니다</h1>
     <p class="unofficial">교육부·교육청의 공식 사이트가 아닙니다. 현직 교원이 학교 업무를 돕기 위해 개인적으로 만든 도구이며, 나이스(NEIS)와 연결되어 있지 않습니다.</p>
@@ -500,6 +530,10 @@ footer.site{border-top:1px solid var(--rule);margin-top:24px;padding:18px 0 26px
       <li>출결·창의적 체험활동·봉사활동·교과·행동특성을 2021~2026학년도 초등학교 기재요령의 학년별 기준으로 점검합니다.</li>
     </ul>
 
+
+    <div class="alt"><button class="btn ghost" data-act="demo">예시 학생으로 먼저 보기</button><span class="narrow" style="color:var(--ink3);font-size:13px">태블릿이나 PC 화면에서 쓰기 좋게 만들었습니다.</span></div>
+   </div>
+   <aside class="home-side" aria-label="안내">
     <section class="safe" aria-labelledby="safeTitle">
       <h2 id="safeTitle">학생부 개인정보, 이렇게 지킵니다</h2>
       <p class="safe-lede">이 사이트에는 학생부를 받아 줄 서버가 없습니다. 사이트 화면을 처음 불러오는 것 말고는 인터넷과 주고받는 것이 없습니다.</p>
@@ -511,13 +545,12 @@ footer.site{border-top:1px solid var(--rule);margin-top:24px;padding:18px 0 26px
       </div>
       <button class="linkish" data-nav="guide" data-focus="g-privacy">개인정보 처리 방식 자세히 보기</button>
     </section>
-    <div class="alt"><button class="btn ghost" data-act="demo">예시 학생으로 먼저 보기</button><span class="narrow" style="color:var(--ink3);font-size:13px">태블릿이나 PC 화면에서 쓰기 좋게 만들었습니다.</span></div>
-
     <div class="next-links">
       <button class="nl" data-nav="rules"><b>무엇을 어떻게 점검하나요?</b><span>연도별로 달라진 기준과 영역별 점검 항목을 한눈에</span></button>
       <button class="nl" data-nav="guide" data-focus="g-pdf"><b>나이스에서 PDF 만드는 법</b><span>출력 화면에서 ‘PDF로 저장’하는 순서</span></button>
       <button class="nl" data-nav="try"><b>문장 하나만 먼저 시험해 보기</b><span>PDF 없이 문장을 붙여 넣어 바로 점검</span></button>
     </div>
+   </aside>
   </div>
 </main>
 
@@ -587,13 +620,15 @@ footer.site{border-top:1px solid var(--rule);margin-top:24px;padding:18px 0 26px
 </main>
 
 <main id="guideView" class="page" hidden>
-  <div class="wrap">
+  <div class="wide">
     <div class="page-head">
       <h1>사용 안내</h1>
       <p>처음 쓰는 선생님을 위한 안내입니다.</p>
       <p class="unofficial">이 사이트는 교육부·교육청 공식 사이트가 아니며 나이스(NEIS)와 연결되어 있지 않습니다. 자세한 내용은 아래 ‘만든 사람’을 보세요.</p>
-      <div class="toc"><button data-scroll="g-pdf">PDF 만들기</button><button data-scroll="g-use">화면 쓰는 법</button><button data-scroll="g-privacy">개인정보</button><button data-scroll="g-faq">자주 묻는 질문</button><button data-scroll="g-source">출처</button><button data-scroll="g-about">만든 사람</button></div>
     </div>
+    <div class="guide-grid">
+    <nav class="toc" aria-label="사용 안내 목차"><button data-scroll="g-pdf">PDF 만들기</button><button data-scroll="g-use">화면 쓰는 법</button><button data-scroll="g-privacy">개인정보</button><button data-scroll="g-faq">자주 묻는 질문</button><button data-scroll="g-source">출처</button><button data-scroll="g-about">만든 사람</button></nav>
+    <div class="guide-body">
 
     <section class="gsec" id="g-pdf">
       <h2>나이스에서 PDF 만드는 법</h2>
@@ -659,6 +694,8 @@ footer.site{border-top:1px solid var(--rule);margin-top:24px;padding:18px 0 26px
       <h2>만든 사람</h2>
       <p>이 사이트는 교육부·교육청이 운영하는 공식 서비스가 아닙니다. 현직 초등학교 교원(최창훈)이 개인적으로 만든 업무 보조 도구이며, 나이스(NEIS)와 연결되어 있지 않습니다. 학교 업무를 돕는 다른 도구는 <a href="https://edu-hub-alpha-ten.vercel.app/" target="_blank" rel="noopener">학교 연장통</a>에서 볼 수 있습니다.</p>
     </section>
+    </div>
+    </div>
   </div>
 </main>
 
@@ -2399,6 +2436,17 @@ function runTry() {
 let tryTimer = null;
 $('#tryText').addEventListener('input', () => { clearTimeout(tryTimer); tryTimer = setTimeout(runTry, 250); });
 ['#tryGrade', '#tryField', '#trySubj'].forEach(sel => $(sel).addEventListener('change', runTry));
+
+/* ── 사용 안내 목차: 지금 읽는 부분 표시 ── */
+(function () {
+  const secs = $$('#guideView .gsec');
+  const io = new IntersectionObserver(ents => {
+    const vis = ents.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+    if (!vis) return;
+    $$('#guideView .toc button').forEach(b => b.setAttribute('aria-current', String(b.dataset.scroll === vis.target.id)));
+  }, { rootMargin: '-120px 0px -60% 0px' });
+  secs.forEach(s => io.observe(s));
+})();
 
 /* ── 내려받기 ── */
 function reportRows(st) {
