@@ -203,6 +203,29 @@ footer.site a{color:var(--ink2)}
 .lic pre{white-space:pre-wrap;font-size:11.5px;line-height:1.5;background:#F7F9FA;border:1px solid var(--rule2);padding:10px;border-radius:4px;max-height:50vh;overflow:auto}
 .narrow{display:none}
 
+/* 생활통지표 */
+.doc-badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#1F4E8C;background:#EAF1FB;border:1px solid #C9DAF2;border-radius:999px;padding:4px 12px;margin-bottom:3px}
+.roster .tag.ntag{color:#2457C5}
+.roster button[aria-current="true"] .tag.ntag{color:#BFD3F5}
+.nconf{background:var(--paper);border:1px solid #C9DAF2;border-left:4px solid #2457C5;border-radius:var(--r);padding:14px 18px;margin:0 0 18px}
+.nconf-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:10px}
+.nconf-h b{font-size:15px}
+.nconf-h small{color:var(--ink3);font-size:13px}
+.nconf-items{display:flex;flex-wrap:wrap;gap:8px}
+.nchk{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--rule);border-radius:999px;padding:6px 14px 6px 10px;background:#fff;cursor:pointer;font-size:14px;font-weight:600;min-height:40px;user-select:none}
+.nchk input{width:18px;height:18px;accent-color:#2457C5;margin:0}
+.nchk:has(input:checked){background:#EAF1FB;border-color:#9DBBE8;color:#1F4E8C}
+.nchk small{font-weight:400;color:var(--ink3);font-size:12px}
+.nchk:focus-within{outline:2px solid #2457C5;outline-offset:2px}
+.nconf p{margin:10px 0 0;font-size:13px;color:var(--ink3);line-height:1.6}
+.sheet.off>h3{color:var(--ink3);border-bottom:0}
+.sheet.off>h3 small{color:var(--ink3)}
+.sheet.off>h3::before{content:"꺼짐";font-size:11.5px;font-weight:600;color:#fff;background:#A3ADB8;border-radius:4px;padding:1px 6px;align-self:center}
+.row.nrow{grid-template-columns:112px minmax(0,1fr) 330px}
+.row.nrow .g{font-size:14px;word-break:keep-all;padding-right:8px;line-height:1.45}
+.nhead td{font-size:15px;padding:7px 4px}
+@media (max-width:1180px){.row.nrow{grid-template-columns:96px minmax(0,1fr)}}
+
 [hidden]{display:none!important}
 
 @media (max-width:1180px){
@@ -685,8 +708,8 @@ a.btn{text-decoration:none}
     </figure>
 
     <label id="drop" class="drop" for="file">
-      <strong>학교생활기록부Ⅱ PDF를 여기에 놓으세요</strong>
-      <span>여러 파일, 여러 학생을 한꺼번에 올려도 됩니다</span><br>
+      <strong>학교생활기록부Ⅱ 또는 생활통지표 PDF를 여기에 놓으세요</strong>
+      <span>여러 파일, 여러 학생을 한꺼번에 올려도 됩니다. 학생부인지 통지표인지는 알아서 가립니다.</span><br>
       <span class="drop-safe">‘올리기’라고 했지만 서버로 올라가지 않습니다. 선생님 기기의 브라우저가 직접 읽습니다.</span><br>
       <span class="btn" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">PDF 파일 고르기</span>
     </label>
@@ -696,6 +719,7 @@ a.btn{text-decoration:none}
     <ul class="facts">
       <li>나이스에서 출력한 학교생활기록부Ⅱ(학교생활세부사항기록부)를 PDF로 저장한 파일을 읽습니다.</li>
       <li>출결·창의적 체험활동·봉사활동·교과·행동특성을 2021~2026학년도 초등학교 기재요령의 학년별 기준으로 점검합니다.</li>
+      <li>생활통지표 PDF도 읽습니다. 학교마다 다른 통지 항목(학기말 종합의견·출결·창체·행동특성) 가운데 이번에 나가는 항목을 골라 빈칸과 문장을 점검합니다.</li>
     </ul>
 
 
@@ -716,6 +740,7 @@ a.btn{text-decoration:none}
     <div class="next-links">
       <button class="nl" data-nav="rules"><b>무엇을 어떻게 점검하나요?</b><span>연도별로 달라진 기준과 영역별 점검 항목을 한눈에</span></button>
       <button class="nl" data-nav="guide" data-focus="g-pdf"><b>나이스에서 PDF 만드는 법</b><span>출력 화면에서 ‘PDF로 저장’하는 순서</span></button>
+      <button class="nl" data-nav="guide" data-focus="g-notice"><b>생활통지표도 점검하기</b><span>학교마다 다른 통지 항목을 골라 빈칸과 문장을 점검</span></button>
       <button class="nl" data-nav="try"><b>문장 하나만 먼저 시험해 보기</b><span>PDF 없이 문장을 붙여 넣어 바로 점검</span></button>
     </div>
     <a class="pair" href="https://student-record-seven.vercel.app/" target="_blank" rel="noopener">
@@ -810,7 +835,7 @@ a.btn{text-decoration:none}
       <p class="unofficial">이 사이트는 교육부·교육청 공식 사이트가 아니며 나이스(NEIS)와 연결되어 있지 않습니다. 자세한 내용은 아래 ‘만든 사람’을 보세요.</p>
     </div>
     <div class="guide-grid">
-    <nav class="toc" aria-label="사용 안내 목차"><button data-scroll="g-pdf">PDF 만들기</button><button data-scroll="g-use">화면 쓰는 법</button><button data-scroll="g-privacy">개인정보</button><button data-scroll="g-faq">자주 묻는 질문</button><button data-scroll="g-source">출처</button><button data-scroll="g-about">만든 사람</button></nav>
+    <nav class="toc" aria-label="사용 안내 목차"><button data-scroll="g-pdf">PDF 만들기</button><button data-scroll="g-notice">통지표 점검</button><button data-scroll="g-use">화면 쓰는 법</button><button data-scroll="g-privacy">개인정보</button><button data-scroll="g-faq">자주 묻는 질문</button><button data-scroll="g-source">출처</button><button data-scroll="g-about">만든 사람</button></nav>
     <div class="guide-body">
 
     <section class="gsec" id="g-pdf">
@@ -821,6 +846,19 @@ a.btn{text-decoration:none}
         <li><b>끌어 놓기</b><span>저장한 PDF를 ‘점검하기’ 화면의 상자에 끌어 놓습니다. 반 전체를 한 파일로 저장해도 학생별로 나눠 읽습니다.</span></li>
       </ol>
       <p class="tip">스캔한 이미지 PDF는 글자를 읽을 수 없습니다. 출력 화면에서 바로 PDF로 저장해 주세요.</p>
+    </section>
+
+    <section class="gsec" id="g-notice">
+      <h2>생활통지표 점검</h2>
+      <ol class="steps">
+        <li><b>통지표 PDF 저장</b><span>나이스 생활통지표 출력 화면에서 반 전체 또는 학생별로 ‘PDF로 저장’합니다. 학생부와 같은 상자에 올리면 첫 쪽의 ‘생활통지표’ 제목을 보고 통지표로 읽습니다.</span></li>
+        <li><b>나가는 항목 고르기</b><span>결과 화면 위쪽 ‘이번 통지표에 나가는 항목’에서 학교가 이번 학기에 내보내는 항목만 켭니다. 출력물에 있는 칸으로 미리 골라 두며, 같은 학기 통지표 학생 모두에 함께 적용됩니다.</span></li>
+        <li><b>빈칸과 문장 확인</b><span>켜 둔 항목이 비어 있으면 ‘오류’로 알립니다. 꺼 둔 항목은 점검하지 않습니다. 문장은 그 학년도 학교생활기록부 기재요령을 준용해 학생부와 같은 규칙으로 봅니다.</span></li>
+      </ol>
+      <p class="tip">흔히 1학기에는 학기말 종합의견·출결상황·창의적 체험활동을, 2학기에는 여기에 행동특성 및 종합의견까지 내보냅니다. 학교마다 다르니 꼭 맞춰 주세요.</p>
+      <h3>통지표에서 더 보는 것</h3>
+      <ul class="plain"><li>켜 둔 항목, 과목 칸, 수업일수가 비어 있는지</li><li>학년별 교과가 빠졌는지 (학교 자율 과목·활동은 그대로 둡니다)</li><li>창의적 체험활동 영역 가운데 비어 있는 칸</li><li>담임명이 비어 있는지</li><li>1학기 통지표에 2학기 날짜나 ‘2학기’라는 말이 섞였는지</li></ul>
+      <p>학생부와 통지표를 함께 올려도 됩니다. 학생 목록에 ‘통지표 1학기’처럼 꼬리표가 붙고, 같은 학생의 학생부·1학기·2학기 통지표를 따로 점검합니다.</p>
     </section>
 
     <section class="gsec" id="g-use">
@@ -1372,7 +1410,9 @@ function joinPara(p, corpus) {
     else if (corpus) {
       const W = stripP(A + B);
       const a0 = stripP(A), b0 = stripP(B);
-      if (W.length >= 3 && corpus.blob.includes(W)) sep = '';
+      if (b0.length === 1 && SUFFIX_START.has(b) && B.length === 1) sep = '';
+      else if (W.length >= 3 && corpus.blob.includes(W)) sep = '';
+      else if (a0.length >= 3 && b0.length >= 2 && !SUFFIX_START.has(b) && /(하여|하고|하며|하게|으로|에서|에게|처럼|있는|하는|가지고|으며)$/.test(a0)) sep = ' ';
       else if (b0.length >= 2 && WORD_FINAL.has(a) && corpus.blob.includes(' ' + b0)) sep = ' ';
       else if (b0.length >= 2 && !SUFFIX_START.has(b) && corpus.blob.includes(' ' + b0) && a0.length >= 2 && corpus.blob.includes(' ' + a0 + ' ')) sep = ' ';
       else if (b0.length >= 3 && !SUFFIX_START.has(b) && corpus.blob.includes(' ' + b0)) sep = ' ';
@@ -1765,6 +1805,7 @@ const BASIS = {
   beh: '행동특성 및 종합의견',
   bytes: '[참고] 항목별 최대 글자수',
   common: '학교생활기록부는 누가기록 중심의 종합 기록',
+  notice: '생활통지표 출력 항목 (학교에서 정한 통지 항목)',
 };
 function findAll(re, text) { const out = []; const r = new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g'); let m; while ((m = r.exec(text))) { out.push({ i: m.index, len: m[0].length, m }); if (!m[0].length) r.lastIndex++; } return out; }
 function crossesJoin(joins, i, len) { return (joins || []).some(j => j > i && j < i + len); }
@@ -1877,6 +1918,7 @@ function checkText(unit, ctx, push) {
     if (yr.english.includes(w.toUpperCase()) || UNITS.includes(w)) continue;
     push({ lv: L.W, code: 'english', title: '영문 표기', msg: `학생부 문자는 한글이 원칙입니다. 영문은 외국인 성명, 일반화된 명사(${yr.english.join('·')}), 도서명·저자명 등 부득이한 경우만 씁니다.`, basis: BASIS.hangul, at: [f.i, f.len] });
   }
+  for (const f of findAll(/[․‧∙ㆍ]/, text)) push({ lv: L.I, code: 'middot', title: '가운뎃점', msg: `‘${f.m[0]}’ 대신 가운뎃점 ‘·’을 씁니다. 한글 문서에서 옮겨 올 때 자주 섞입니다.`, basis: BASIS.style, at: [f.i, f.len], fix: '·' });
   for (const f of findAll(/:\s*\.\s|^\s*[.,]\s/, text)) push({ lv: L.W, code: 'stray', title: '불필요한 문장부호', msg: '문장 앞에 마침표·쉼표가 남아 있습니다.', basis: BASIS.style, at: [f.i, f.len] });
   for (const f of findAll(/\s[.,](?!\d)|\.{2,}|,{2,}/, text)) push({ lv: L.I, code: 'punct', title: '문장부호 확인', msg: '마침표·쉼표 앞 공백이나 겹친 문장부호가 있습니다.', basis: BASIS.style, at: [f.i, f.len] });
   // 3) 맞춤법·띄어쓰기
@@ -1937,6 +1979,7 @@ function joinOffsets(paras) { const out = []; let off = 0; for (const p of paras
 
 function checkStudent(st, settings = {}) {
   const N = settings.longAbsDays || 7;
+  const isN = st.kind === 'notice';
   const units = buildUnits(st);
   const findings = [];
   const add = (u, f, g, Y) => findings.push(Object.assign({ sid: st.id, uid: u ? u.uid : null, field: u ? u.field : f.field, g: u ? u.g : g, Y: u ? u.Y : Y, label: u ? u.label : (f.label || '') }, f));
@@ -1971,7 +2014,8 @@ function checkStudent(st, settings = {}) {
       const u = actU.find(x => x.text.includes(a.m[0].trim().slice(0, 10)));
       add(u || null, { lv: L.W, code: 'self-club-len', title: '자율동아리 소개 길이', msg: '자율동아리는 동아리명과 30자 이내(동아리명·공백 포함) 소개만 입력할 수 있습니다.', basis: BASIS.club, field: 'act', label: '창의적 체험활동', at: u ? [u.text.indexOf(a.m[0].trim().slice(0, 10)), a.m[0].trim().length] : null }, g, Y);
     }
-    // 비어 있는 항목
+    // 비어 있는 항목 (통지표는 항목 구성에 따라 checkNotice에서 봄)
+    if (!isN) {
     if (!actU.length && (st.actAreas[g] || []).length) add(null, { lv: past ? L.W : L.I, code: 'empty-act', title: past ? '창체 특기사항 없음' : '창체 입력 전', msg: past ? '창의적 체험활동 특기사항이 비어 있습니다.' : '올해 창의적 체험활동 특기사항이 아직 입력되지 않았습니다.', basis: BASIS.common, field: 'act', label: '창의적 체험활동' }, g, Y);
     const sb = st.sub[g];
     if (sb) {
@@ -1987,8 +2031,9 @@ function checkStudent(st, settings = {}) {
     }
     const bh = st.beh[g];
     if (bh && !bh.paras.length) add(null, { lv: past ? L.W : L.I, code: 'empty-beh', title: past ? '행동특성 없음' : '행동특성 입력 전', msg: past ? '행동특성 및 종합의견이 비어 있습니다.' : '올해 행동특성 및 종합의견이 아직 입력되지 않았습니다.', basis: BASIS.beh, field: 'beh', label: '행동특성 및 종합의견' }, g, Y);
+    }
     // 글자수(2025학년도까지)
-    if (R.limits.sub) {
+    if (R.limits.sub && !isN) {
       const eb = R.enterByte;
       const check = (u, lim, name) => { const b = bytesOf(u.text, eb); if (b > lim * 3) add(u, { lv: L.E, code: 'bytes', title: '글자수 초과', msg: `${name} 최대 ${lim}자(${lim * 3}Byte) 기준을 넘습니다. 현재 약 ${b}Byte.`, basis: BASIS.bytes }); };
       // 1~2학년 통합교과(바른 생활, 슬기로운 생활, 즐거운 생활)는 한 칸에 세 과목을 입력하므로 세 과목 몫으로 계산
@@ -2009,12 +2054,12 @@ function checkStudent(st, settings = {}) {
     const base = { field: 'att', label: '출결상황' };
     const total = a.v.reduce((s, x) => s + x, 0);
     const hasPerfect = /개근/.test(a.remark || '');
-    if (total === 0 && !hasPerfect) add(u, Object.assign({ lv: past ? L.W : L.I, code: 'perfect-missing', title: past ? '개근 누락' : '개근(마감 시 입력)', msg: past ? '결석·지각·조퇴·결과가 한 번도 없는데 특기사항에 ‘개근’이 없습니다. 중도 입학·편입학, 순회·원격수업 학생이면 정상입니다.' : '현재까지 결석·지각·조퇴·결과가 없습니다. 학년말 마감 때 ‘개근’이 입력되는지 확인하세요.', basis: BASIS.att }, base), a.g, Y);
+    if (total === 0 && !hasPerfect && !isN) add(u, Object.assign({ lv: past ? L.W : L.I, code: 'perfect-missing', title: past ? '개근 누락' : '개근(마감 시 입력)', msg: past ? '결석·지각·조퇴·결과가 한 번도 없는데 특기사항에 ‘개근’이 없습니다. 중도 입학·편입학, 순회·원격수업 학생이면 정상입니다.' : '현재까지 결석·지각·조퇴·결과가 없습니다. 학년말 마감 때 ‘개근’이 입력되는지 확인하세요.', basis: BASIS.att }, base), a.g, Y);
     if (total > 0 && hasPerfect) add(u, Object.assign({ lv: L.E, code: 'perfect-wrong', title: '개근 오기재', msg: '결석·지각·조퇴·결과가 있는데 ‘개근’이 입력되어 있습니다.', basis: BASIS.att, at: u ? [u.text.indexOf('개근'), 2] : null }, base), a.g, Y);
     const remarkOnly = (a.remark || '').replace(/개근[,\s]*/g, '').trim();
     if (a.v[2] > 0 && !remarkOnly) add(u, Object.assign({ lv: L.E, code: 'etc-absence', title: '기타결석 사유 없음', msg: `기타결석 ${a.v[2]}일이 있습니다. 기타결석은 1일이라도 사유를 입력합니다.`, basis: BASIS.att }, base), a.g, Y);
     if (R.longAbsenceRequired && (a.v[0] >= N || a.v[1] >= N) && !remarkOnly) add(u, Object.assign({ lv: L.W, code: 'long-absence', title: '장기결석 사유 확인', msg: `${a.v[0] >= N ? `질병결석 ${a.v[0]}일` : ''}${a.v[0] >= N && a.v[1] >= N ? ', ' : ''}${a.v[1] >= N ? `미인정결석 ${a.v[1]}일` : ''}이 있습니다. ${Y}학년도 기재요령은 장기결석(학교장이 정한 연속 결석 기간)일 때 결석 종류별로 사유를 입력하게 되어 있습니다. 연속 결석이었는지 확인하세요.`, basis: BASIS.att }, base), a.g, Y);
-    if (past && a.days && a.days < 190) {
+    if (past && !isN && a.days && a.days < 190) {
       const moved = st.events.some(e => schoolYearOf(e.y, e.m) === Y);
       if (!moved) add(u, Object.assign({ lv: L.I, code: 'days', title: '수업일수 확인', msg: `수업일수가 ${a.days}일입니다. 수업일수는 190일 이상이 원칙이니 전·편입학이나 입력 오류인지 확인하세요.`, basis: BASIS.att }, base), a.g, Y);
     }
@@ -2059,6 +2104,13 @@ function checkStudent(st, settings = {}) {
     }
   }
   st.units = units;
+  if (isN) {
+    checkNotice(st, units, settings, add);
+    const items = noticeItemsFor(st, settings);
+    const kept = findings.filter(f => f.field === 'per' || items[f.field]);
+    kept.forEach(f => (f.doc = 'notice'));
+    return kept;
+  }
   return findings;
 }
 
@@ -2067,7 +2119,8 @@ function crossStudent(students, findingsByStudent) {
   const map = new Map();
   for (const st of students) for (const u of (st.units || []).filter(x => x.field === 'beh')) for (const sp of sentenceSpans(u.text)) {
     const n = sp.s.replace(/[\s.,'"‘’“”]/g, ''); if (n.length < 25) continue;
-    if (!map.has(n)) map.set(n, []); map.get(n).push({ st, u, sp });
+    const kk = (st.kind === 'notice' ? 'N' + noticeTermKey(st) : 'R') + '|';
+    if (!map.has(kk + n)) map.set(kk + n, []); map.get(kk + n).push({ st, u, sp });
   }
   for (const [, arr] of map) {
     const who = [...new Set(arr.map(a => a.st.id))]; if (who.length < 2) continue;
@@ -2107,6 +2160,220 @@ function fromData(list, opts = {}) {
 }
 
 
+/* ───────────── 9. 생활통지표 (나이스 생활통지표 PDF) ───────────── */
+// 학교마다 통지표에 내보내는 항목이 달라 ‘이번 통지표에 나가는 항목’을 교사가 정합니다.
+const NOTICE_FIELDS = [
+  { key: 'sub', name: '학기말 종합의견' },
+  { key: 'att', name: '출결상황' },
+  { key: 'act', name: '창의적 체험활동' },
+  { key: 'beh', name: '행동특성 및 종합의견' }
+];
+const NOTICE_SECTIONS = [
+  [/^기본학적사항$/, 'head'], [/^학기말종합의견$/, 'sub'], [/^출결상황$/, 'att'],
+  [/^창의적체험활동상황$/, 'act'], [/^행동특성및종합의견$/, 'beh']
+];
+const NOTICE_SKIP = /^(교과\(?목?\)?학기말종합의견|창의적체험활동상황|영역특기사항|행동특성및종합의견|결석일수지각조퇴결과|수업일수특기사항|(질병미인정기타)+)$/;
+const SUBJ_DONE = /^(국어|사회|도덕|수학|과학|실과|체육|음악|미술|영어|바른생활|슬기로운생활|즐거운생활|바른생활\/슬기로운생활\/즐거운생활)$/;
+
+// 문서 종류 판별: 첫 쪽 위쪽에 ‘생활통지표’ 제목이 있으면 통지표
+function detectKind(items) {
+  const top = items.filter(it => it.p === 1 && it.y < 110).map(it => it.s).join('');
+  if (/생활\s*통지표/.test(top.replace(/\s+/g, ''))) return 'notice';
+  return 'record';
+}
+const noticeTermKey = st => st.term ? `${st.term.Y}-${st.term.sem}` : '';
+
+function parseNotice(items, opts = {}) {
+  const lines = buildLines(items);
+  const pageInfo = new Map();
+  for (const l of lines) {
+    const t = textIn(l, 0, 9999), n = nospace(t);
+    const pi = pageInfo.get(l.p) || {};
+    if (l.y < 70 && /생활통지표/.test(n)) pi.title = true;
+    if (l.y < 100) { const m = t.match(/(\d{4})\s*학년도\s*([12])\s*학기/); if (m) pi.term = { Y: +m[1], sem: +m[2] }; }
+    if (l.y > 785) { const m = t.match(/(\d+)\s*\/\s*(\d+)\s*반\s*(\d+)\s*번호\s*(\d+)\s*성명\s*(\S+)/); if (m) Object.assign(pi, { pg: +m[1], pgs: +m[2], ban: +m[3], no: +m[4], name: m[5] }); }
+    pageInfo.set(l.p, pi);
+  }
+  const pages = [...new Set(lines.map(l => l.p))].sort((a, b) => a - b);
+  const groups = []; let g = null;
+  for (const p of pages) {
+    const pi = pageInfo.get(p) || {};
+    if (!g || pi.title || pi.pg === 1) { g = { pages: [], info: Object.assign({}, pi) }; groups.push(g); }
+    else for (const k of ['ban', 'no', 'name', 'term']) if (g.info[k] == null && pi[k] != null) g.info[k] = pi[k];
+    g.pages.push(p);
+  }
+  const students = groups.map((grp, idx) => parseNoticeStudent(lines.filter(l => grp.pages.includes(l.p) && !isNoticeFooter(l)), grp, idx, opts));
+  finalizeJoins(students);
+  students.forEach(st => splitActAreas(st));
+  return students;
+}
+
+function isNoticeFooter(l) { return l.y > 785 && /반\s*\d+\s*번호\s*\d+\s*성명/.test(textIn(l, 0, 9999)); }
+function parseNoticeStudent(lines, grp, idx, opts) {
+  const info = grp.info;
+  const st = {
+    kind: 'notice', id: 'n' + idx + '_' + Math.random().toString(36).slice(2, 7),
+    ban: info.ban || null, no: info.no || null, name: info.name || `학생 ${idx + 1}`, teacher: '',
+    term: info.term || null, present: { sub: false, att: false, act: false, beh: false },
+    history: [], events: [], att: [], act: {}, actAreas: {}, vol: [], sub: {}, beh: {}, grades: [], yearOf: {}, parseNotes: []
+  };
+  let section = null;
+  const buckets = { head: [], sub: [], att: [], act: [], beh: [] };
+  for (const l of lines) {
+    const all = textIn(l, 0, 9999), ns = nospace(all);
+    const first = l.items.find(it => it.s.trim());
+    if (/생활통지표/.test(ns) && l.y < 70) continue;
+    if (/^\d{4}학년도[12]학기$/.test(ns)) continue;
+    const hit = first && first.x < 70 ? NOTICE_SECTIONS.find(([re]) => re.test(ns)) : null;
+    if (hit) { section = hit[1]; if (section !== 'head') st.present[section] = true; continue; }
+    if (!section || NOTICE_SKIP.test(ns)) continue;
+    buckets[section].push(l);
+  }
+  // 기본학적사항: 학년·반·번호·담임명 (성명은 꼬리말 것을 씀)
+  const headText = buckets.head.map(l => textIn(l, 0, 9999)).join(' ');
+  const hm = headText.match(/학년\s*(\d)\s*반\s*(\d+)\s*번호\s*(\d+)/);
+  const g = hm ? +hm[1] : (opts.grade || null);
+  if (hm) { st.ban = st.ban || +hm[2]; st.no = st.no || +hm[3]; }
+  const tm = headText.match(/담임명\s*(.*)$/); st.teacher = tm ? tm[1].trim() : '';
+  if (!g) return st;
+  const Y = st.term ? st.term.Y : (opts.today || new Date()).getFullYear();
+  st.grades = [g]; st.yearOf[g] = Y; st.currentYear = Y; st.history = [{ g, ban: st.ban, no: st.no }];
+
+  // 출결: 수업일수 + 12칸, 특기사항은 오른쪽 열
+  let last = null;
+  for (const l of buckets.att) {
+    const firstTok = l.items.find(it => it.s.trim());
+    if (!last && firstTok && firstTok.x < 90 && /^(\d+|\.)$/.test(firstTok.s.trim())) {
+      const toks = l.items.filter(it => it.s.trim() && it.x < 470).map(it => it.s.trim()).join(' ').split(/\s+/).filter(Boolean);
+      const days = parseInt(toks[0], 10);
+      const v = toks.slice(1, 13).map(t => (t === '.' ? 0 : parseInt(t, 10) || 0));
+      while (v.length < 12) v.push(0);
+      last = { g, days: isNaN(days) ? null : days, v, remark: textIn(l, 470, 9999) };
+      st.att.push(last);
+    } else if (last) { const r = textIn(l, 470, 9999); if (r) last.remark += (last.remark ? ' ' : '') + r; }
+  }
+  if (st.present.att && !st.att.length) st.att.push({ g, days: null, v: new Array(12).fill(0), remark: '' });
+
+  // 학기말 종합의견: 왼쪽 과목 열(라벨은 칸 가운데에 찍힘) → 줄 배정
+  if (st.present.sub) {
+    const { rows, labels } = noticeRows(buckets.sub, 140);
+    const merged = mergeSubjectLabels(labels, rows);
+    merged.forEach((lb, i) => (lb.g = i + 1));
+    assignByPage(rows, merged);
+    const paras = [], subjects = [];
+    const ids = [...new Set(rows.map(r => r.g))];
+    for (const id of ids) {
+      const ps = toParagraphs(rows.filter(r => r.g === id));
+      const lb = merged.find(x => x.g === id);
+      subjects.push({ name: lb ? lb.name : '(과목명 없음)', paras: ps });
+      paras.push(...ps);
+    }
+    merged.filter(lb => !ids.includes(lb.g)).forEach(lb => subjects.push({ name: lb.name, paras: [], empty: true }));
+    st.sub[g] = { paras, subjects, labels: merged.map(x => x.name) };
+  }
+  // 창의적 체험활동: 영역 라벨은 쪽이 바뀌면 엉뚱한 자리에 찍히므로 문단으로 영역을 추정
+  if (st.present.act) {
+    const { rows, labels } = noticeRows(buckets.act, 170);
+    rows.forEach((r, i) => { const pr = rows[i - 1]; if (pr && /^\(/.test(r.text) && /[.]$/.test(pr.text)) r.gapBreak = true; });
+    const areas = [];
+    for (const lb of labels) { const a = normalizeArea(lb.name); if (/활동$|안전한생활/.test(a) && !areas.includes(a)) areas.push(a); }
+    st.actAreas[g] = areas.length ? areas : expectedAreas(Y, g);
+    st.act[g] = { paras: toParagraphs(rows) };
+  }
+  if (st.present.beh) {
+    const { rows } = noticeRows(buckets.beh, 0);
+    st.beh[g] = { paras: toParagraphs(rows) };
+  }
+  return st;
+}
+function noticeRows(lines, lx) {
+  const rows = [], labels = [];
+  let maxR = 0;
+  for (const l of lines) maxR = Math.max(maxR, rightEdge(l, lx));
+  let prev = null;
+  for (const l of lines) {
+    if (lx > 0) { const lb = textIn(l, 0, lx); if (lb) labels.push({ p: l.p, y: l.y, name: lb }); }
+    const t = textIn(l, lx, 9999);
+    if (!t) continue;
+    const row = { p: l.p, y: l.y, text: t, short: rightEdge(l, lx) < maxR - 14, left: leftEdge(l, lx) };
+    row.gapBreak = !!(prev && prev.p === row.p && row.y - prev.y > 20);
+    rows.push(row); prev = row;
+  }
+  return { rows, labels };
+}
+// 두 줄로 찍힌 과목명(예: 바른생활/슬기로운 + 생활/즐거운생활) 합치기
+function mergeSubjectLabels(labels, rows) {
+  const out = [];
+  for (const lb of labels) {
+    const prev = out[out.length - 1];
+    const pn = prev ? nospace(prev.name) : '', cn = nospace(lb.name);
+    const between = prev ? rows.some(r => r.p === lb.p && r.y > prev.y2 + 2.5 && r.y < lb.y - 2.5 && r.short) : true;
+    if (prev && prev.p === lb.p && lb.y - prev.y2 < 17 && !SUBJ_DONE.test(pn) && !/\)$/.test(pn) && !SUBJ_DONE.test(cn) && !between) {
+      prev.name += lb.name; prev.y2 = lb.y; prev.y = (prev.y1 + lb.y) / 2;
+    } else out.push({ p: lb.p, y: lb.y, y1: lb.y, y2: lb.y, name: lb.name });
+  }
+  out.forEach(o => { o.name = o.name.replace(/\s+/g, ' ').replace(/\s*\/\s*/g, '/').trim(); });
+  return out;
+}
+
+// 통지표에만 있는 점검: 항목 구성에 따른 빈칸, 담임명, 학기 밖 날짜
+function noticeItemsFor(st, settings) {
+  const key = noticeTermKey(st);
+  const conf = settings.noticeItems && settings.noticeItems[key];
+  if (conf) return conf;
+  return Object.assign({}, st.present);
+}
+function checkNotice(st, units, settings, add) {
+  const g = st.grades[0]; if (!g) return;
+  const Y = st.yearOf[g];
+  const items = noticeItemsFor(st, settings);
+  const base = (field, label) => ({ field, label });
+  const E = (field, label, f) => add(null, Object.assign(base(field, label), f), g, Y);
+  if (items.sub) {
+    const sb = st.sub[g];
+    const filled = sb ? sb.subjects.filter(s => s.paras.some(p => p.text.trim())) : [];
+    if (!filled.length) E('sub', '학기말 종합의견', { lv: L.E, code: 'notice-empty', title: '학기말 종합의견 비어 있음', msg: '이번 통지표에 나가는 항목인데 내용이 없습니다. 입력을 마쳤는지, 나이스에서 출력할 항목을 맞게 골랐는지 확인하세요.', basis: BASIS.notice });
+    else {
+      sb.subjects.filter(s => s.empty || !s.paras.some(p => p.text.trim())).forEach(s => E('sub', s.name, { lv: L.E, code: 'notice-empty-subject', title: '과목 내용 없음', msg: `‘${s.name}’ 칸이 비어 있습니다.`, basis: BASIS.notice }));
+      const have = sb.subjects.map(s => nospace(s.name));
+      for (const e of expectedSubjects(Y, g)) {
+        const key = nospace(e).replace(/,/g, '');
+        const ok = have.some(h => h === key || (key.startsWith('바른생활') && /바른생활|슬기로운생활|즐거운생활/.test(h)));
+        if (!ok) E('sub', e, { lv: L.W, code: 'notice-missing-subject', title: '과목 누락 의심', msg: `${g}학년 ‘${e}’ 학기말 종합의견이 보이지 않습니다. 이번 학기에 배우지 않은 교과라면 무시하세요.`, basis: BASIS.notice });
+      }
+    }
+  }
+  if (items.att) {
+    const a = st.att[0];
+    if (!a || a.days == null) E('att', '출결상황', { lv: L.E, code: 'notice-att-empty', title: '수업일수 비어 있음', msg: '출결상황의 수업일수가 비어 있습니다. 출결 마감을 했는지, 이 학생의 학적이 맞는지 확인하세요.', basis: BASIS.notice });
+  }
+  if (items.act) {
+    const act = st.act[g];
+    const P = act ? act.paras.filter(p => p.text.trim()) : [];
+    if (!P.length) E('act', '창의적 체험활동', { lv: L.E, code: 'notice-empty', title: '창체 특기사항 비어 있음', msg: '이번 통지표에 나가는 항목인데 특기사항이 없습니다.', basis: BASIS.notice });
+    else {
+      const used = new Set(P.map(p => p.area));
+      (st.actAreas[g] || []).filter(a => !used.has(a)).forEach(a => E('act', a, { lv: L.W, code: 'notice-area-empty', title: `${a} 비어 있음`, msg: `‘${a}’ 칸에 내용이 없는 것으로 보입니다. 영역 구분은 출력물에서 추정한 것이니, 다른 영역에 함께 들어갔다면 영역을 바꿔 주세요.`, basis: BASIS.notice }));
+    }
+  }
+  if (items.beh) {
+    const bh = st.beh[g];
+    if (!bh || !bh.paras.some(p => p.text.trim())) E('beh', '행동특성 및 종합의견', { lv: L.E, code: 'notice-empty', title: '행동특성 비어 있음', msg: st.present.beh ? '이번 통지표에 나가는 항목인데 내용이 없습니다.' : '이번 통지표에 나가는 항목으로 골랐는데 출력물에 행동특성 칸이 없습니다. 나이스 출력 설정을 확인하세요.', basis: BASIS.notice });
+  }
+  if (!st.teacher) E('per', '기본학적사항', { lv: L.W, code: 'notice-teacher', title: '담임명 없음', msg: '기본학적사항의 담임명이 비어 있습니다. 학부모에게 나가기 전에 확인하세요.', basis: BASIS.notice });
+  // 1학기 통지표에 2학기 날짜·표현
+  if (st.term && st.term.sem === 1) {
+    const dateRe = /(20\d{2})\s?\.\s?(\d{1,2})\s?\.\s?(\d{1,2})\.?|(20\d{2})년\s?(\d{1,2})월\s?(\d{1,2})일/;
+    for (const u of units.filter(x => items[x.field])) {
+      for (const f of findAll(dateRe, u.text)) {
+        const m = +(f.m[2] || f.m[5]);
+        if (m >= 9 || m <= 2) add(u, { lv: L.W, code: 'notice-term', title: '2학기 날짜', msg: '1학기 통지표에 2학기(9월 이후) 날짜가 들어 있습니다. 2학기 기록이 섞이지 않았는지 확인하세요.', basis: BASIS.notice, at: [f.i, f.len] });
+      }
+      for (const f of findAll(/2\s?학기/, u.text)) add(u, { lv: L.W, code: 'notice-term', title: '‘2학기’ 표현', msg: '1학기 통지표에 ‘2학기’라는 말이 있습니다. 2학기 기록이 섞이지 않았는지 확인하세요.', basis: BASIS.notice, at: [f.i, f.len] });
+    }
+  }
+}
+
 /* ───────────── 8. 점검 기준 안내용 규칙 목록 (점검 기준 페이지·근거 연결에 사용) ───────────── */
 const RULE_DOC = [
   { id: 'ban', name: '기재 금지 사항', scope: '모든 서술형 항목', lead: '사교육을 부추기거나 학생 간 형평을 해치는 내용은 학생부 어느 칸에도 쓸 수 없습니다.',
@@ -2126,7 +2393,7 @@ const RULE_DOC = [
     ex: { bad: '친구들의 의견을 고르게 들으려고 [노력했다].', good: '친구들의 의견을 고르게 들으려고 노력함.' },
     items: [
       { id: 'r-ending', codes: ['ending', 'ending-noun', 'period'], lv: 'warn', title: '명사형 어미로 끝내기', what: '‘~했다, ~합니다’로 끝난 문장을 찾습니다. ~함·~음·~임으로 끝내야 합니다.' },
-      { id: 'r-symbol', codes: ['bullet', 'special', 'stray', 'punct'], lv: 'warn', title: '특수문자·문단 구분 기호', what: '①, ■, ※ 같은 특수문자와 번호·글머리 기호, 남은 마침표를 찾습니다.' },
+      { id: 'r-symbol', codes: ['bullet', 'special', 'stray', 'punct', 'middot'], lv: 'warn', title: '특수문자·문단 구분 기호', what: '①, ■, ※ 같은 특수문자와 번호·글머리 기호, 남은 마침표를 찾습니다.' },
       { id: 'r-english', codes: ['english'], lv: 'warn', title: '영문 표기', from: 2021, what: '한글이 원칙입니다. 외국인 성명, 일반화된 명사(CEO·PD·UCC·IT·POP·CF·TV·PAPS·SNS·PPT), 도서명·저자명은 영문 가능. 2026학년도부터 AI와 단위도 허용.' },
       { id: 'r-spell', codes: ['spell'], lv: 'info', title: '맞춤법·띄어쓰기', what: '자주 틀리는 낱말과 띄어쓰기 목록으로 확인합니다(예: 자신있게 → 자신 있게, 축적 → 축척).' },
       { id: 'r-dup', codes: ['repeat-word', 'dup-phrase', 'dup-grade', 'dup-student'], lv: 'warn', title: '반복·복사 흔적', what: '같은 칸 안의 같은 구절, 다른 학년 기록과 같은 문장, 다른 학생 행동특성과 같은 문장, 한 문장 안 같은 표현 반복.' },
@@ -2174,6 +2441,15 @@ const RULE_DOC = [
       { id: 'r-behempty', codes: ['empty-beh'], lv: 'warn', title: '미입력', what: '지난 학년의 행동특성이 비어 있으면 알립니다.' },
       { id: 'r-behdup', codes: ['dup-student'], lv: 'info', title: '다른 학생과 같은 문장', what: '여러 학생을 함께 올리면, 행동특성에 똑같은 문장이 쓰인 경우를 찾습니다.' }
     ] },
+  { id: 'notice', name: '생활통지표', scope: '통지표 PDF를 올렸을 때', lead: '학교마다 내보내는 항목이 달라, 이번 통지표에 나가는 항목을 골라 빈칸과 학기에 맞는 내용인지 봅니다. 문장은 그 학년도 기재요령을 준용해 위 규칙으로 점검합니다.',
+    ex: { bad: '1학기 통지표: [2학기] 학급 임원([2026.08.25.]-2027.01.06.)', good: '1학기 학급 임원(2026.03.01.-2026.08.24.)' },
+    items: [
+      { id: 'r-nempty', codes: ['notice-empty', 'notice-empty-subject', 'notice-att-empty'], lv: 'error', title: '나가는 항목 빈칸', what: '이번 통지표에 나가는 항목으로 고른 학기말 종합의견·출결상황·창체·행동특성이 비어 있거나, 과목 칸·수업일수가 비어 있으면 알립니다. 꺼 둔 항목은 점검하지 않습니다.' },
+      { id: 'r-nsubject', codes: ['notice-missing-subject'], lv: 'warn', title: '교과 누락', what: '학년별 교과의 학기말 종합의견이 보이지 않으면 알립니다. 학교 자율 과목·활동은 그대로 둡니다.' },
+      { id: 'r-narea', codes: ['notice-area-empty'], lv: 'warn', title: '창체 영역 빈칸', what: '자율·자치활동, 동아리활동, 진로활동 가운데 내용이 없는 영역을 알립니다. 영역은 출력물에서 추정합니다.' },
+      { id: 'r-nterm', codes: ['notice-term'], lv: 'warn', title: '1학기 통지표의 2학기 내용', what: '1학기 통지표에 9월 이후 날짜나 ‘2학기’라는 말이 있으면 2학기 기록이 섞였는지 확인하도록 알립니다.' },
+      { id: 'r-nteacher', codes: ['notice-teacher'], lv: 'warn', title: '담임명', what: '기본학적사항의 담임명이 비어 있으면 알립니다.' }
+    ] },
   { id: 'per', name: '학적사항', scope: '인적·학적사항', lead: '학적 변동 날짜를 봅니다. 주민등록번호와 주소는 점검에 쓰지 않습니다.',
     ex: { bad: '2024.3.5. 전출 → 2024.3.8. 전입 (평일 2일 공백)', good: '전출일과 전입일 사이에 공백이 없도록' },
     items: [
@@ -2207,7 +2483,7 @@ function checkSnippet(text, field, Y, g, subject) {
   return { student: st, findings: f };
 }
 
-const api = { RULE_DOC, YEAR_CHANGES, CODE_TO_RULE, checkSnippet, fromData, YEARS, yearRule, isNewCurriculum, expectedAreas, expectedSubjects, parseRecord, checkStudent, crossStudent, buildUnits, CHECKLIST, schoolYearOf, bytesOf, sentenceSpans };
+const api = { detectKind, parseNotice, noticeTermKey, noticeItemsFor, NOTICE_FIELDS, RULE_DOC, YEAR_CHANGES, CODE_TO_RULE, checkSnippet, fromData, YEARS, yearRule, isNewCurriculum, expectedAreas, expectedSubjects, parseRecord, checkStudent, crossStudent, buildUnits, CHECKLIST, schoolYearOf, bytesOf, sentenceSpans };
 if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.RC = api;
 })(typeof window !== 'undefined' ? window : globalThis);
 </script>
@@ -2228,8 +2504,27 @@ const AREAS_ALL = ['자율활동', '자율·자치활동', '동아리활동', '�
 const S = {
   students: [], findings: new Map(), resolved: new Set(), current: null, view: 'home',
   levels: { error: true, warn: true, info: true }, grade: 'all',
-  settings: { longAbsDays: 7, mask: false }, checklist: {}, demo: false
+  settings: { longAbsDays: 7, mask: false, noticeItems: {} }, checklist: {}, demo: false
 };
+/* ── 생활통지표 ── */
+const isNotice = st => st && st.kind === 'notice';
+const termText = st => st.term ? `${st.term.Y}학년도 ${st.term.sem}학기` : '학기 미상';
+const docTag = st => isNotice(st) ? `통지표 ${st.term ? st.term.sem + '학기' : ''}`.trim() : '';
+const NOTICE_LABEL = { sub: '학기말 종합의견', per: '기본학적사항' };
+const fieldLabel = f => (f.doc === 'notice' && NOTICE_LABEL[f.field]) || FIELD[f.field] || '';
+const basisText = f => /^notice-/.test(f.code) ? shortBasis(f.basis) : `${Math.min(2026, Math.max(2021, f.Y || 2026))}학년도 기재요령 · ${shortBasis(f.basis)}`;
+function initNoticeItems(list) {
+  const ni = S.settings.noticeItems; const fresh = new Set();
+  for (const st of list.filter(isNotice)) {
+    const k = RC.noticeTermKey(st);
+    if (!ni[k]) { ni[k] = { sub: false, att: false, act: false, beh: false }; fresh.add(k); }
+    if (fresh.has(k)) for (const f in st.present) if (st.present[f]) ni[k][f] = true;
+  }
+}
+function docTitle(sts) {
+  const n = sts.filter(isNotice).length;
+  return !n ? '학교생활기록부 점검 결과' : n === sts.length ? '생활통지표 점검 결과' : '학교생활기록부·생활통지표 점검 결과';
+}
 
 /* ── 이름 가리기 ── */
 const maskName = n => !n ? '' : (n.length <= 1 ? n : n[0] + '○'.repeat(Math.max(1, n.length - 2)) + (n.length > 2 ? n[n.length - 1] : ''));
@@ -2239,7 +2534,8 @@ const shownName = st => S.settings.mask ? maskName(st.name) : st.name;
 const curGrade = st => Math.max(...(st.grades.length ? st.grades : [0]));
 const multiGroup = () => new Set(S.students.map(s => `${curGrade(s)}-${s.ban || 0}`)).size > 1;
 function stuCode(st) { const g = curGrade(st); return multiGroup() ? [g || '', st.ban || '', st.no || ''].filter(x => x !== '').join('-') : String(st.no || ''); }
-function sortStudents() { S.students.sort((a, b) => curGrade(a) - curGrade(b) || (a.ban || 0) - (b.ban || 0) || (a.no || 0) - (b.no || 0)); }
+const docRank = st => isNotice(st) ? (st.term ? st.term.Y * 10 + st.term.sem : 1) : 0;
+function sortStudents() { S.students.sort((a, b) => curGrade(a) - curGrade(b) || (a.ban || 0) - (b.ban || 0) || (a.no || 0) - (b.no || 0) || docRank(a) - docRank(b)); }
 
 /* ── 점검 실행 ── */
 function fkey(f) { return [f.sid.split('_')[0], f.uid ? f.uid.split('-').slice(1).join('-') : f.field + f.g, f.code, f.at ? f.at[0] : ''].join('|'); }
@@ -2293,7 +2589,7 @@ async function pdfItems(buf, onPage) {
 async function handleFiles(files) {
   files = [...files].filter(f => /pdf$/i.test(f.name) || f.type === 'application/pdf');
   const errBox = $('#homeErr'); errBox.hidden = true;
-  if (!files.length) { showErr('PDF 파일만 올릴 수 있습니다. 나이스에서 학교생활기록부Ⅱ를 PDF로 저장한 파일을 골라 주세요.'); return; }
+  if (!files.length) { showErr('PDF 파일만 올릴 수 있습니다. 나이스에서 학교생활기록부Ⅱ나 생활통지표를 PDF로 저장한 파일을 골라 주세요.'); return; }
   const ov = $('#overlay'); ov.style.display = 'grid';
   const added = []; const problems = [];
   try {
@@ -2304,9 +2600,10 @@ async function handleFiles(files) {
         const buf = new Uint8Array(await f.arrayBuffer());
         const items = await pdfItems(buf, (p, n) => { $('#ovBar').style.width = Math.round(((i + p / n) / files.length) * 100) + '%'; });
         if (items.length < 50) { problems.push(`${f.name}: 글자를 읽을 수 없는 PDF입니다(스캔 이미지일 수 있음).`); continue; }
-        const sts = RC.parseRecord(items, {});
-        const ok = sts.filter(s => s.grades.length && (Object.keys(s.act).length || Object.keys(s.sub).length || s.att.length));
-        if (!ok.length) { problems.push(`${f.name}: 학교생활기록부Ⅱ 형식을 찾지 못했습니다.`); continue; }
+        const kind = RC.detectKind(items);
+        const sts = kind === 'notice' ? RC.parseNotice(items, {}) : RC.parseRecord(items, {});
+        const ok = kind === 'notice' ? sts.filter(s => s.grades.length) : sts.filter(s => s.grades.length && (Object.keys(s.act).length || Object.keys(s.sub).length || s.att.length));
+        if (!ok.length) { problems.push(`${f.name}: ${kind === 'notice' ? '생활통지표에서 학년·반·번호를 찾지 못했습니다.' : '학교생활기록부Ⅱ 형식을 찾지 못했습니다.'}`); continue; }
         ok.forEach(s => (s.file = f.name));
         added.push(...ok);
       } catch (e) { console.error(e); problems.push(`${f.name}: 파일을 여는 중 문제가 생겼습니다 (${e.message || e}).`); }
@@ -2315,16 +2612,20 @@ async function handleFiles(files) {
   if (problems.length) showErr(problems.join('<br>'));
   if (!added.length) return;
   if (S.demo) { S.students = []; S.demo = false; S.resolved.clear(); }
-  // 같은 학생(반·번호·이름)이 다시 오면 교체
+  // 같은 학생(반·번호·이름)의 같은 문서(학생부, 같은 학기 통지표)가 다시 오면 교체
+  const sameDoc = (x, st) => isNotice(x) === isNotice(st) && RC.noticeTermKey(x) === RC.noticeTermKey(st) && x.ban === st.ban && x.no === st.no && x.name === st.name;
   for (const st of added) {
-    const i = S.students.findIndex(x => x.ban === st.ban && x.no === st.no && x.name === st.name);
+    const i = S.students.findIndex(x => sameDoc(x, st));
     if (i >= 0) S.students[i] = st; else S.students.push(st);
   }
+  initNoticeItems(added);
   sortStudents();
   runAll();
   S.current = added[0].id; S.grade = 'all';
   go('work');
+  const nN = added.filter(isNotice).length;
   if (problems.length) toast(`${problems.length}개 파일은 읽지 못했습니다. 첫 화면에서 이유를 볼 수 있습니다.`);
+  else if (nN) toast(`생활통지표 ${nN}명을 읽었습니다. 위쪽에서 ‘이번 통지표에 나가는 항목’을 확인하세요.`);
 }
 function showErr(html) { const b = $('#homeErr'); b.innerHTML = html; b.hidden = false; }
 
@@ -2378,7 +2679,9 @@ function renderWork() {
   const c = counts(all);
   const bans = [...new Set(S.students.map(s => s.ban).filter(Boolean))];
   const groups = [...new Set(S.students.map(s => `${curGrade(s)}학년 ${s.ban || ''}반`))];
-  $('#tbTitle').innerHTML = `${S.demo ? '예시초등학교' : (groups.length === 1 ? groups[0] : '여러 반')}<small>학생 ${S.students.length}명</small>`;
+  const nTerms = [...new Set(S.students.filter(isNotice).map(termText))];
+  const allN = S.students.every(isNotice);
+  $('#tbTitle').innerHTML = `${S.demo ? '예시초등학교' : (groups.length === 1 ? groups[0] : '여러 반')}<small>${allN && nTerms.length === 1 ? `생활통지표 ${esc(nTerms[0])} · ` : ''}${nTerms.length && !allN ? `학생부·통지표 ${S.students.length}개` : `학생 ${S.students.length}명`}</small>`;
   $('#chipE b').textContent = c.error; $('#chipW b').textContent = c.warn; $('#chipN b').textContent = c.info;
   $('#chipE').setAttribute('aria-pressed', S.levels.error); $('#chipW').setAttribute('aria-pressed', S.levels.warn); $('#chipN').setAttribute('aria-pressed', S.levels.info);
   renderRoster();
@@ -2388,15 +2691,16 @@ function renderWork() {
 function renderRoster() {
   const html = S.students.map(st => {
     const c = counts(S.findings.get(st.id) || []);
-    return `<button data-sid="${st.id}" aria-current="${st.id === S.current}"><span class="no">${esc(stuCode(st))}</span><span class="nm">${esc(shownName(st))}${S.demo && st.tag ? `<small class="tag">${esc(st.tag)}</small>` : ''}</span><span class="dots">${c.error ? `<span class="e" title="오류">${c.error}</span>` : ''}${c.warn ? `<span class="w" title="주의">${c.warn}</span>` : ''}</span></button>`;
+    return `<button data-sid="${st.id}" aria-current="${st.id === S.current}"><span class="no">${esc(stuCode(st))}</span><span class="nm">${esc(shownName(st))}${S.demo && st.tag ? `<small class="tag">${esc(st.tag)}</small>` : ''}${isNotice(st) ? `<small class="tag ntag">${esc(docTag(st))}</small>` : ''}</span><span class="dots">${c.error ? `<span class="e" title="오류">${c.error}</span>` : ''}${c.warn ? `<span class="w" title="주의">${c.warn}</span>` : ''}</span></button>`;
   }).join('');
   $('#rosterList').innerHTML = html;
-  $('#rosterSel').innerHTML = S.students.map(st => { const c = counts(S.findings.get(st.id) || []); return `<option value="${st.id}" ${st.id === S.current ? 'selected' : ''}>${esc(stuCode(st))} ${esc(shownName(st))}${S.demo && st.tag ? ` · ${esc(st.tag)}` : ''} — 오류 ${c.error} · 주의 ${c.warn}</option>`; }).join('');
+  $('#rosterSel').innerHTML = S.students.map(st => { const c = counts(S.findings.get(st.id) || []); return `<option value="${st.id}" ${st.id === S.current ? 'selected' : ''}>${esc(stuCode(st))} ${esc(shownName(st))}${S.demo && st.tag ? ` · ${esc(st.tag)}` : ''}${isNotice(st) ? ` · ${esc(docTag(st))}` : ''} — 오류 ${c.error} · 주의 ${c.warn}</option>`; }).join('');
 }
 function cur() { return S.students.find(s => s.id === S.current) || S.students[0]; }
 
 function renderStudent() {
   const st = cur(); if (!st) return;
+  if (isNotice(st)) { renderNoticeStudent(st); return; }
   const fs = (S.findings.get(st.id) || []).filter(visible);
   const byG = g => fs.filter(f => f.g === g);
   // 머리
@@ -2466,6 +2770,74 @@ function renderStudent() {
   if (S.demo && !S.demoBandHidden) h = `<div class="demo-band" role="note"><div><b>예시초등학교 가상 학생 8명입니다.</b> 이름 아래 주제를 보고 학생을 하나씩 눌러 보세요. 모든 이름과 문장은 새로 만든 가상 자료입니다.</div><div class="demo-acts"><button class="btn ghost sm" data-act="tourStart">사용법 다시 보기</button><button class="x" data-act="demoBandClose" aria-label="안내 닫기">×</button></div></div>` + h;
   $('#student').innerHTML = h;
 }
+/* ── 생활통지표 한 명 ── */
+function nrow(label, body, notesHtml) { return `<div class="row nrow"><div class="g">${label}</div><div class="txt">${body}</div><div class="notes">${notesHtml}</div></div>`; }
+function renderNoticeStudent(st) {
+  const fs = (S.findings.get(st.id) || []).filter(visible);
+  const g = st.grades[0], Y = st.yearOf[g];
+  const items = RC.noticeItemsFor(st, S.settings);
+  const key = RC.noticeTermKey(st);
+  const peers = S.students.filter(s => isNotice(s) && RC.noticeTermKey(s) === key).length;
+  const units = st.units || [];
+  const notesOf = list => list.slice().sort((a, b) => LV_ORDER[a.lv] - LV_ORDER[b.lv]).map(f => noteHtml(f)).join('');
+  const c = counts(S.findings.get(st.id) || []);
+  const off = (title, k) => `<section class="sheet off"><h3>${title}<small>이번 통지표에 나가지 않는 항목으로 골라 점검하지 않습니다${st.present[k] ? '' : ' · 출력물에도 없음'}</small></h3></section>`;
+  let h = `<div class="stu-head"><h2>${st.no ? st.no + '번 ' : ''}${esc(shownName(st))}<small>${g ? g + '학년 ' : ''}${st.ban ? st.ban + '반' : ''} · 오류 ${c.error} · 주의 ${c.warn} · 권고 ${c.info}</small></h2><span class="doc-badge">생활통지표 · ${esc(termText(st))}</span></div>`;
+  h += `<section class="nconf" aria-labelledby="nconfT"><div class="nconf-h"><b id="nconfT">이번 통지표에 나가는 항목</b><small>${esc(termText(st))} 통지표 ${peers}명에 함께 적용</small></div>
+    <div class="nconf-items">${RC.NOTICE_FIELDS.map(f => `<label class="nchk"><input type="checkbox" data-nitem="${f.key}" ${items[f.key] ? 'checked' : ''}><span>${f.name}</span>${st.present[f.key] ? '' : '<small>출력물에 없음</small>'}</label>`).join('')}</div>
+    <p>출력물에 있는 칸으로 미리 골라 두었습니다. 학교에서 이번에 내보내지 않는 항목은 끄세요. 켜 둔 항목이 비어 있으면 오류로 알리고, 문장은 ${Math.min(2026, Math.max(2021, Y))}학년도 학교생활기록부 기재요령을 준용해 점검합니다.</p></section>`;
+  // 기본학적사항
+  {
+    const list = fs.filter(f => f.field === 'per');
+    const tf = list.find(f => f.code === 'notice-teacher');
+    const teacher = st.teacher ? esc(S.settings.mask ? maskName(st.teacher) : st.teacher) : (tf ? `<mark class="${tf.lv}${isDone(tf) ? ' done' : ''}" data-fid="${tf.fid}">비어 있음</mark>` : '');
+    h += `<section class="sheet"><h3>기본학적사항</h3><div class="split"><div class="att-wrap"><table class="att nhead"><tr><th>학년</th><th>반</th><th>번호</th><th>성명</th><th>담임명</th></tr><tr><td>${g || ''}</td><td>${st.ban || ''}</td><td>${st.no || ''}</td><td>${esc(shownName(st))}</td><td>${teacher}</td></tr></table></div><div class="notes">${notesOf(list)}</div></div></section>`;
+  }
+  // 학기말 종합의견
+  if (!items.sub) h += off('학기말 종합의견', 'sub');
+  else {
+    const list = fs.filter(f => f.field === 'sub');
+    const us = units.filter(u => u.field === 'sub');
+    let rows = '';
+    const used = new Set();
+    for (const u of us) {
+      const mine = list.filter(f => f.uid === u.uid || (!f.uid && f.code === 'notice-empty-subject' && f.label === u.subject));
+      mine.forEach(f => used.add(f));
+      rows += nrow(esc(u.subject), u.text ? `<p class="para">${marked(u, mine)}</p>` : '<p class="empty">비어 있습니다.</p>', notesOf(mine));
+    }
+    for (const f of list.filter(x => !used.has(x) && x.code === 'notice-missing-subject')) { used.add(f); rows += nrow(esc(f.label), '<p class="empty">이 교과의 학기말 종합의견이 보이지 않습니다.</p>', notesOf([f])); }
+    const rest = list.filter(x => !used.has(x));
+    if (!us.length) rows = nrow('', '<p class="empty">입력된 내용이 없습니다.</p>', notesOf(rest)) + rows;
+    else if (rest.length) rows += nrow('', '', notesOf(rest));
+    h += sheet('학기말 종합의견', '교과(목)별', rows);
+  }
+  // 출결상황
+  if (!items.att) h += off('출결상황', 'att');
+  else {
+    const list = fs.filter(f => f.field === 'att');
+    const a = st.att[0];
+    const u = units.find(x => x.field === 'att');
+    const body = a ? attTable(a) + (u ? `<p class="para" style="margin-top:10px"><span class="subj">특기사항</span>${marked(u, list)}</p>` : '') : '<p class="empty">출결상황이 없습니다.</p>';
+    h += `<section class="sheet"><h3>출결상황</h3><div class="split"><div class="att-wrap">${body}</div><div class="notes">${notesOf(list)}</div></div></section>`;
+  }
+  // 창의적 체험활동
+  if (!items.act) h += off('창의적 체험활동상황', 'act');
+  else {
+    const list = fs.filter(f => f.field === 'act');
+    const us = units.filter(u => u.field === 'act');
+    const areas = (st.actAreas[g] || []).concat(AREAS_ALL.filter(a => !(st.actAreas[g] || []).includes(a)));
+    const body = us.length ? us.map(u => `<p class="para"><span class="area ${u.areaGuess ? 'guess' : ''}"><select data-area="${g}|${u.pi}" aria-label="영역">${areas.map(a => `<option ${a === u.area ? 'selected' : ''}>${a}</option>`).join('')}</select></span>${marked(u, list)}</p>`).join('') : '<p class="empty">특기사항이 없습니다.</p>';
+    h += sheet('창의적 체험활동상황', '영역 구분은 출력물에서 추정합니다 — 다르면 영역을 바꿔 주세요', nrow(`${g}학년`, body, notesOf(list)));
+  }
+  // 행동특성 및 종합의견
+  if (!items.beh) h += off('행동특성 및 종합의견', 'beh');
+  else {
+    const list = fs.filter(f => f.field === 'beh');
+    const u = units.find(x => x.field === 'beh');
+    h += sheet('행동특성 및 종합의견', '', nrow(`${g}학년`, u ? `<p class="para">${marked(u, list)}</p>` : '<p class="empty">입력된 내용이 없습니다.</p>', notesOf(list)));
+  }
+  $('#student').innerHTML = h;
+}
 function worst(list) { return list.slice().sort((a, b) => LV_ORDER[a.lv] - LV_ORDER[b.lv])[0].lv; }
 function eventsLine(st) {
   return st.events.filter(e => e.g || e.type === '전출').map(e => `${e.y}.${String(e.m).padStart(2, '0')}.${String(e.d).padStart(2, '0')}. ${e.g ? e.g + '학년 ' : ''}${e.type}`).join(' · ') || '학적 변동 기록';
@@ -2519,7 +2891,7 @@ function noteHtml(f, showGrade, opt = {}) {
   const q = labLink(f);
   const Y = Math.min(2026, Math.max(2021, f.Y || 2026));
   const rid = RC.CODE_TO_RULE[f.code];
-  return `<article class="note ${f.lv}${isDone(f) ? ' done' : ''}" data-note="${f.fid}" tabindex="0"><header>${showGrade ? `<span class="gtag">${f.g}학년</span>` : ''}<b>${esc(f.title)}</b><em>${LV[f.lv]}</em></header><p>${esc(f.msg)}</p>${q}<footer>${rid ? `<button class="rule-link" data-rule="${f.code}" title="점검 기준에서 이 규칙 보기">근거: ${Y}학년도 기재요령 · ${esc(shortBasis(f.basis))}</button>` : `<span>근거: ${Y}학년도 기재요령 · ${esc(shortBasis(f.basis))}</span>`}${opt.noDone ? '' : `<button data-done="${f.fid}">${isDone(f) ? '확인함 ✓' : '확인함'}</button>`}</footer></article>`;
+  return `<article class="note ${f.lv}${isDone(f) ? ' done' : ''}" data-note="${f.fid}" tabindex="0"><header>${showGrade ? `<span class="gtag">${f.g}학년</span>` : ''}<b>${esc(f.title)}</b><em>${LV[f.lv]}</em></header><p>${esc(f.msg)}</p>${q}<footer>${rid ? `<button class="rule-link" data-rule="${f.code}" title="점검 기준에서 이 규칙 보기">근거: ${esc(basisText(f))}</button>` : `<span>근거: ${esc(basisText(f))}</span>`}${opt.noDone ? '' : `<button data-done="${f.fid}">${isDone(f) ? '확인함 ✓' : '확인함'}</button>`}</footer></article>`;
 }
 const shortBasis = b => (b || '').replace(/^\[참고\]\s*/, '');
 
@@ -2543,6 +2915,14 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.classList && e.target.classList.contains('note')) e.target.click(); if (e.key === 'Escape') { if (!$('#clearModal').hidden) closeClear(); else closeDrawers(); } });
 document.addEventListener('change', e => {
   const t = e.target;
+  if (t.dataset.nitem) {
+    const st = cur(); const k = RC.noticeTermKey(st);
+    S.settings.noticeItems[k] = Object.assign({}, RC.noticeItemsFor(st, S.settings), { [t.dataset.nitem]: t.checked });
+    runAll(); keepScroll(renderWork);
+    const nm = RC.NOTICE_FIELDS.find(x => x.key === t.dataset.nitem).name;
+    toast(`${termText(st)} 통지표: ‘${nm}’ ${t.checked ? '점검에 넣었습니다' : '점검에서 뺐습니다'}.`);
+    return;
+  }
   if (t.dataset.yg) { const st = cur(); st.yearOf[+t.dataset.yg] = +t.value; st.yearNote = null; runOne(st); keepScroll(renderWork); toast(`${t.dataset.yg}학년을 ${t.value}학년도 기재요령으로 다시 점검했습니다.`); }
   if (t.dataset.area) { const [g, pi] = t.dataset.area.split('|'); const st = cur(); const p = st.act[g].paras[+pi]; p.area = t.value; p.areaGuess = false; runOne(st); keepScroll(renderWork); }
   if (t.id === 'rosterSel') { S.current = t.value; S.grade = 'all'; renderWork(); }
@@ -2793,7 +3173,7 @@ function reportRows(st) {
       const s = Math.max(0, f.at[0] - 22), e = Math.min(u.text.length, f.at[0] + f.at[1] + 22);
       ex = { pre: (s > 0 ? '…' : '') + u.text.slice(s, f.at[0]).replace(/\n/g, ' '), hit: u.text.slice(f.at[0], f.at[0] + f.at[1]).replace(/\n/g, ' '), post: u.text.slice(f.at[0] + f.at[1], e).replace(/\n/g, ' ') + (e < u.text.length ? '…' : '') };
     }
-    return { f, ex, done: isDone(f), basis: `${Math.min(2026, Math.max(2021, f.Y || 2026))}학년도 기재요령 · ${shortBasis(f.basis)}` };
+    return { f, ex, done: isDone(f), basis: basisText(f) };
   });
 }
 function today() { const d = new Date(); return { y: d.getFullYear(), m: d.getMonth() + 1, d: d.getDate(), s: `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}.` }; }
@@ -2801,9 +3181,10 @@ function stamp() { const t = today(); return `${t.y}${String(t.m).padStart(2, '0
 function save(name, blob) { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500); }
 function fileBase() {
   const sts = dlStudents();
-  if (S.dl.scope === 'one' && sts[0]) return `학생부점검결과_${sts[0].ban ? sts[0].ban + '반' : ''}${sts[0].no ? sts[0].no + '번' : ''}${dlMask() ? '' : '_' + sts[0].name}_${stamp()}`;
+  const pre = docTitle(sts) === '생활통지표 점검 결과' ? '통지표점검결과' : '학생부점검결과';
+  if (S.dl.scope === 'one' && sts[0]) return `${pre}_${sts[0].ban ? sts[0].ban + '반' : ''}${sts[0].no ? sts[0].no + '번' : ''}${dlMask() ? '' : '_' + sts[0].name}_${stamp()}`;
   const bans = [...new Set(sts.map(s => s.ban).filter(Boolean))];
-  return `학생부점검결과_${bans.length === 1 ? bans[0] + '반_' : ''}${stamp()}`;
+  return `${pre}_${bans.length === 1 ? bans[0] + '반_' : ''}${stamp()}`;
 }
 const SOURCES = [['교육부', '「2021~2025학년도 학교생활기록부 기재요령(초등학교)」'], ['교육부·17개 시도교육청', '「2026학년도 학교생활기록부 기재요령(초등학교)」'], ['점검 항목 구성 참고', '「2023학년도 학교생활기록부 현장점검 도움자료」']];
 const UNOFFICIAL = '이 결과는 교육부·교육청의 공식 점검 결과가 아닙니다. 현직 교원이 만든 「학생부 점검 한눈에」의 자동 점검 결과이므로 참고 자료로 쓰고, 최종 판단은 해당 학년도 학교생활기록부 기재요령 원문으로 확인하세요.';
@@ -2813,16 +3194,16 @@ function reportBody() {
   const sts = dlStudents(); const t = today();
   const all = sts.flatMap(st => (S.findings.get(st.id) || []).filter(f => S.dl.includeDone || !isDone(f)));
   const c = { error: 0, warn: 0, info: 0 }; all.forEach(f => c[f.lv]++);
-  let h = `<section class="rp-cover"><div class="rp-seal">점<br>검</div><h1>학교생활기록부 점검 결과</h1>
+  let h = `<section class="rp-cover"><div class="rp-seal">점<br>검</div><h1>${docTitle(sts)}</h1>
     <p class="rp-meta">점검일 ${t.s} · 학생 ${sts.length}명 · 오류 ${c.error} · 주의 ${c.warn} · 권고 ${c.info}</p>
     <p class="rp-legend"><b class="error">오류</b> 기재요령 위반, 고쳐야 함 <b class="warn">주의</b> 상황에 따라 확인 <b class="info">권고</b> 문장 다듬기</p>
     <p class="rp-un">${esc(UNOFFICIAL)}</p></section>`;
   sts.forEach((st, i) => {
     const rows = reportRows(st); const cc = { error: 0, warn: 0, info: 0 }; rows.forEach(r => cc[r.f.lv]++);
-    h += `<section class="rp-stu${i ? ' brk' : ''}"><h2>${st.ban ? st.ban + '반 ' : ''}${st.no ? st.no + '번 ' : ''}${esc(dlName(st))}</h2>
+    h += `<section class="rp-stu${i ? ' brk' : ''}"><h2>${st.ban ? st.ban + '반 ' : ''}${st.no ? st.no + '번 ' : ''}${esc(dlName(st))}${isNotice(st) ? ` <small>생활통지표 ${esc(termText(st))}</small>` : ''}</h2>
       <p class="rp-sum"><span class="error">오류 ${cc.error}</span><span class="warn">주의 ${cc.warn}</span><span class="info">권고 ${cc.info}</span><span>적용 학년도 ${st.grades.map(g => `${g}학년 ${st.yearOf[g]}`).join(' · ')}</span></p>`;
     h += rows.length ? `<table class="rp-t"><colgroup><col style="width:9%"><col style="width:14%"><col style="width:7%"><col style="width:40%"><col style="width:30%"></colgroup>
-      <thead><tr><th>학년</th><th>항목</th><th>수준</th><th>점검 내용</th><th>해당 부분</th></tr></thead><tbody>${rows.map(r => `<tr class="${r.done ? 'done' : ''}"><td>${r.f.g || ''}학년<small>${r.f.Y || ''}</small></td><td>${FIELD[r.f.field] || ''}${r.f.label && r.f.label !== FIELD[r.f.field] ? `<small>${esc(r.f.label)}</small>` : ''}</td><td class="lv ${r.f.lv}">${LV[r.f.lv]}${r.done ? '<small>확인함</small>' : ''}</td><td><b>${esc(r.f.title)}</b><span>${esc(r.f.msg)}</span><small>근거: ${esc(r.basis)}</small></td><td class="rp-ex">${r.ex ? `${esc(r.ex.pre)}<mark class="${r.f.lv}">${esc(r.ex.hit)}</mark>${esc(r.ex.post)}` : ''}</td></tr>`).join('')}</tbody></table>` : '<p class="rp-none">지적 사항이 없습니다.</p>';
+      <thead><tr><th>학년</th><th>항목</th><th>수준</th><th>점검 내용</th><th>해당 부분</th></tr></thead><tbody>${rows.map(r => `<tr class="${r.done ? 'done' : ''}"><td>${r.f.g || ''}학년<small>${r.f.Y || ''}</small></td><td>${fieldLabel(r.f)}${r.f.label && r.f.label !== fieldLabel(r.f) ? `<small>${esc(r.f.label)}</small>` : ''}</td><td class="lv ${r.f.lv}">${LV[r.f.lv]}${r.done ? '<small>확인함</small>' : ''}</td><td><b>${esc(r.f.title)}</b><span>${esc(r.f.msg)}</span><small>근거: ${esc(r.basis)}</small></td><td class="rp-ex">${r.ex ? `${esc(r.ex.pre)}<mark class="${r.f.lv}">${esc(r.ex.hit)}</mark>${esc(r.ex.post)}` : ''}</td></tr>`).join('')}</tbody></table>` : '<p class="rp-none">지적 사항이 없습니다.</p>';
     h += '</section>';
   });
   h += `<section class="rp-end brk"><h2>교사 확인 항목</h2><table class="rp-ck"><thead><tr><th>확인 내용</th><th>1차</th><th>2차</th><th>3차</th></tr></thead><tbody>${RC.CHECKLIST.map(ck => `<tr><td>${esc(ck.text)}</td>${[1, 2, 3].map(n => `<td class="c">${S.checklist[ck.id + '-' + n] ? '✓' : ''}</td>`).join('')}</tr>`).join('')}</tbody></table>
@@ -2833,7 +3214,7 @@ function reportBody() {
 }
 function printPageCss(date) {
   return `@page{size:A4 portrait;margin:15mm 12mm 17mm;
-  @top-left{content:"학교생활기록부 점검 결과";font:9pt "Malgun Gothic","Apple SD Gothic Neo",sans-serif;color:#8A94A1}
+  @top-left{content:"${docTitle(dlStudents())}";font:9pt "Malgun Gothic","Apple SD Gothic Neo",sans-serif;color:#8A94A1}
   @top-right{content:"점검일 ${date}";font:9pt "Malgun Gothic","Apple SD Gothic Neo",sans-serif;color:#8A94A1}
   @bottom-left{content:"비공식 개인 제작 도구 · 참고용";font:8.5pt "Malgun Gothic","Apple SD Gothic Neo",sans-serif;color:#8A94A1}
   @bottom-right{content:counter(page) " / " counter(pages);font:9pt sans-serif;color:#566170}}`;
@@ -2900,7 +3281,7 @@ function addListSheet(wb, name, sts) {
     band = !band;
     for (const r of reportRows(st)) {
       const ex = r.ex ? { richText: [{ text: r.ex.pre, font: { name: FONT, size: 10, color: { argb: XL.ink2 } } }, { text: r.ex.hit, font: { name: FONT, size: 10, bold: true, underline: true, color: { argb: XL[r.f.lv] } } }, { text: r.ex.post, font: { name: FONT, size: 10, color: { argb: XL.ink2 } } }] } : '';
-      const row = ws.addRow([st.ban || '', st.no || '', dlName(st), r.f.g ? `${r.f.g}학년` : '', r.f.Y || '', FIELD[r.f.field] || '', r.f.label && r.f.label !== FIELD[r.f.field] ? r.f.label : '', LV[r.f.lv], r.f.title, r.f.msg, ex, r.basis, r.done ? 'O' : '']);
+      const row = ws.addRow([st.ban || '', st.no || '', dlName(st) + (isNotice(st) ? ` (${docTag(st)})` : ''), r.f.g ? `${r.f.g}학년` : '', r.f.Y || '', fieldLabel(r.f), r.f.label && r.f.label !== fieldLabel(r.f) ? r.f.label : '', LV[r.f.lv], r.f.title, r.f.msg, ex, r.basis, r.done ? 'O' : '']);
       row.eachCell({ includeEmpty: true }, (c, col) => {
         c.font = c.font && c.value && c.value.richText ? c.font : { name: FONT, size: 10, color: { argb: XL.ink } };
         c.alignment = { vertical: 'top', wrapText: true, horizontal: [1, 2, 4, 5, 8, 13].includes(col) ? 'center' : 'left' };
@@ -2929,7 +3310,7 @@ async function downloadExcel() {
     const sw = [7, 7, 12, 34, 9, 9, 9, 9, 10];
     const ws = wb.addWorksheet('요약', { views: [{ state: 'frozen', ySplit: 5 }], pageSetup: { paperSize: 9, orientation: 'portrait', fitToPage: true, fitToWidth: 1, fitToHeight: 0, printTitlesRow: '5:5' } });
     sw.forEach((w, i) => (ws.getColumn(i + 1).width = w));
-    ws.mergeCells('A1:I1'); const t1 = ws.getCell('A1'); t1.value = '학교생활기록부 점검 결과'; t1.font = { name: FONT, size: 16, bold: true, color: { argb: XL.ink } }; t1.alignment = { vertical: 'middle' }; ws.getRow(1).height = 34;
+    ws.mergeCells('A1:I1'); const t1 = ws.getCell('A1'); t1.value = docTitle(dlStudents()); t1.font = { name: FONT, size: 16, bold: true, color: { argb: XL.ink } }; t1.alignment = { vertical: 'middle' }; ws.getRow(1).height = 34;
     ws.mergeCells('A2:I2'); const t2 = ws.getCell('A2'); t2.value = `점검일 ${t.s} · 학생 ${sts.length}명 · 학년마다 그해 학교생활기록부 기재요령(초등학교, 2021~2026)을 적용`; t2.font = { name: FONT, size: 10, color: { argb: XL.ink2 } }; ws.getRow(2).height = 20;
     ws.mergeCells('A3:I3'); const t3 = ws.getCell('A3'); t3.value = UNOFFICIAL; t3.font = { name: FONT, size: 9, color: { argb: XL.warn } }; t3.alignment = { wrapText: true, vertical: 'top' }; t3.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: XL.warnBg } }; ws.getRow(3).height = Math.ceil(linesFor(UNOFFICIAL, sw.reduce((a, b) => a + b, 0)) * 9 * 1.6 + 8);
     ws.getRow(4).height = 8;
@@ -2939,7 +3320,7 @@ async function downloadExcel() {
       const fs = (S.findings.get(st.id) || []).filter(f => S.dl.includeDone || !isDone(f));
       const c = { error: 0, warn: 0, info: 0 }; let dn = 0; fs.forEach(f => { if (isDone(f)) dn++; else c[f.lv]++; });
       tot.error += c.error; tot.warn += c.warn; tot.info += c.info; tot.done += dn;
-      const r = ws.addRow([st.ban || '', st.no || '', dlName(st), st.grades.map(g => `${g}학년 ${st.yearOf[g]}`).join(', '), c.error, c.warn, c.info, c.error + c.warn + c.info, dn]);
+      const r = ws.addRow([st.ban || '', st.no || '', dlName(st) + (isNotice(st) ? ` (${docTag(st)})` : ''), st.grades.map(g => `${g}학년 ${st.yearOf[g]}`).join(', '), c.error, c.warn, c.info, c.error + c.warn + c.info, dn]);
       r.eachCell({ includeEmpty: true }, (cell, col) => { cell.font = { name: FONT, size: 10, color: { argb: XL.ink } }; cell.alignment = { vertical: 'middle', wrapText: true, horizontal: col === 3 || col === 4 ? 'left' : 'center' }; cell.border = border(XL.rule); if (i % 2) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: XL.band } }; });
       [['error', 5], ['warn', 6], ['info', 7]].forEach(([k, col]) => { if (c[k]) { const cell = r.getCell(col); cell.font = { name: FONT, size: 10, bold: true, color: { argb: XL[k] } }; cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: XL[k + 'Bg'] } }; } });
       r.getCell(8).font = { name: FONT, size: 10, bold: true, color: { argb: XL.ink } };
