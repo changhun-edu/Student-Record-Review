@@ -61,6 +61,12 @@ button{cursor:pointer}
 .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:var(--r);padding:10px 18px;font-weight:600;min-height:44px}
 .btn.ghost{background:var(--paper);color:var(--ink);border-color:var(--rule)}
 .btn.ghost:hover{border-color:var(--ink2)}
+.btn.demo-cta{background:var(--blue);border-color:var(--blue);color:#fff;padding:12px 22px 12px 16px;gap:12px;box-shadow:0 4px 14px rgba(36,87,197,.28);transition:transform .15s,box-shadow .15s,background .15s}
+.btn.demo-cta:hover{background:#1C47A6;border-color:#1C47A6;transform:translateY(-1px);box-shadow:0 6px 18px rgba(36,87,197,.36)}
+.btn.demo-cta:focus-visible{outline:3px solid #9DB6EC;outline-offset:2px}
+.demo-cta-txt{display:flex;flex-direction:column;align-items:flex-start;text-align:left;line-height:1.3}
+.demo-cta-txt b{font-size:16px;font-weight:700}
+.demo-cta-txt small{font-size:12.5px;font-weight:500;opacity:.85}
 .btn.sm{padding:6px 12px;min-height:36px;font-size:14px}
 .drop .btn{margin-top:16px;color:#fff;font-size:15px}
 .facts{list-style:none;padding:0;margin:22px 0 10px;display:grid;gap:8px}
@@ -693,7 +699,7 @@ a.btn{text-decoration:none}
     </ul>
 
 
-    <div class="alt"><button class="btn ghost" data-act="demo">예시 학생 8명으로 둘러보기</button><a class="btn ghost" href="examples/sample-school.pdf" download>예시 PDF 내려받아 직접 올려 보기</a><span class="narrow" style="color:var(--ink3);font-size:13px">태블릿이나 PC 화면에서 쓰기 좋게 만들었습니다.</span></div>
+    <div class="alt"><button class="btn demo-cta" data-act="demo"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,.22)"/><path d="M10 7.5v9l7-4.5z" fill="#fff"/></svg><span class="demo-cta-txt"><b>예시 학생 8명으로 먼저 둘러보기</b><small>PDF 없이 바로 점검 결과를 볼 수 있어요</small></span></button><span class="narrow" style="color:var(--ink3);font-size:13px">태블릿이나 PC 화면에서 쓰기 좋게 만들었습니다.</span></div>
    </div>
    <aside class="home-side" aria-label="안내">
     <section class="safe" aria-labelledby="safeTitle">
@@ -2457,7 +2463,7 @@ function renderStudent() {
     const list = fsFor(g, 'beh');
     return row(g, st, u ? `<p class="para">${marked(u, list)}</p>` : '<p class="empty">입력된 내용이 없습니다.</p>', notes(list));
   }).join(''));
-  if (S.demo && !S.demoBandHidden) h = `<div class="demo-band" role="note"><div><b>예시초등학교 가상 학생 8명입니다.</b> 이름 아래 주제를 보고 학생을 하나씩 눌러 보세요. 모든 이름과 문장은 새로 만든 가상 자료입니다.</div><div class="demo-acts"><button class="btn ghost sm" data-act="tourStart">사용법 다시 보기</button><a class="btn ghost sm" href="examples/sample-school.pdf" download>예시 PDF 내려받기</a><button class="x" data-act="demoBandClose" aria-label="안내 닫기">×</button></div></div>` + h;
+  if (S.demo && !S.demoBandHidden) h = `<div class="demo-band" role="note"><div><b>예시초등학교 가상 학생 8명입니다.</b> 이름 아래 주제를 보고 학생을 하나씩 눌러 보세요. 모든 이름과 문장은 새로 만든 가상 자료입니다.</div><div class="demo-acts"><button class="btn ghost sm" data-act="tourStart">사용법 다시 보기</button><button class="x" data-act="demoBandClose" aria-label="안내 닫기">×</button></div></div>` + h;
   $('#student').innerHTML = h;
 }
 function worst(list) { return list.slice().sort((a, b) => LV_ORDER[a.lv] - LV_ORDER[b.lv])[0].lv; }
